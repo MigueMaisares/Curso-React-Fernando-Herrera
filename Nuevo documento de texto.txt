@@ -1,0 +1,12 @@
+Arrange - Arreglar (Preparamos el estado inicial)
+Inicializamos variables
+hacemos importaciones necesarias
+preparamos el ambiente
+
+Act - Actuar (Aplicamos acciones o estimulos)
+Llamar metodos, simular click
+Realizar acciones sobre el paso anterior
+
+Assert - Afirmar (Observar el comportamiento resultante)
+Son los resultados eesperados?
+Ej: que algo cambie, algo incremente o bien no suceda nada
