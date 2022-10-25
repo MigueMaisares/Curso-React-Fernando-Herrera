@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getGif } from "../helpers/getGif";
-
+//Un Custom Hook es un arrow function que no devuelve jsx y no recibe props
 export const useFetchGifs = (category) => {
   const [imagenes, setImagenes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
