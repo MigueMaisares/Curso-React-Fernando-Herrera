@@ -1,0 +1,6 @@
+===============package-lock.json===============
+Es propio de npm (gestor de proyecto), es un archivo que dice a nuestra app de node como fue
+construida la dependecia de nuestros modulo de node, NUNCA TOCARLO, si se llega a borrar con un npm install regresa
+
+===============node_modules===============
+Como estamos en un proyecto de node, tambien tenemos sus dependencias en esta carpeta, aca estan las dep de desa y prod, el 99% de las dep no llegan a prod
