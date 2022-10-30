@@ -1,28 +1,42 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { TodoAdd } from "./TodoAdd";
 import { TodoList } from "./TodoList";
 import { todoReducer } from "./TodoReducer";
 
-const initialState = [
-  {
-    id: new Date().getTime(),
-    descripcion: "Recoletar la piedra del Alma",
-    done: false,
-  },
-  {
-    id: new Date().getTime() * 2,
-    descripcion: "Recoletar la piedra del Infinito",
-    done: false,
-  },
-];
+const initialState = [];
+
+//Necesitamos inicializar nuestro state con los todos anteriores
+const init = () => {
+  //Al iniciar la aplicacion sera nulo lo del localStorage
+  return JSON.parse(localStorage.getItem("todos")) || [];
+};
 
 export const TodoApp = () => {
+  //    despachador de acciones que contienen la carga = estado
+  const [todos, dispatch] = useReducer(todoReducer, initialState, init);
+
+  useEffect(() => {
+    //Necesitamos serializar el estado que es un Objeto y castearlo a String (localStorage lo requiere)
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   const handleNewTodo = (todo) => {
-    console.log({ todo });
+    const action = {
+      type: "[TODO] Add todo",
+      payload: todo,
+    };
+    //De esta manera le mando la accion al Reducer
+    dispatch(action);
   };
 
-  //    despachador de estados
-  const [todos, dispatch] = useReducer(todoReducer, initialState);
+  const handleRemoveTodo = (id) => {
+    /* console.log(id); */
+    dispatch({
+      type: "[TODO] Remove todo",
+      payload: id,
+    });
+  };
+
   return (
     <>
       <h1>
@@ -32,7 +46,7 @@ export const TodoApp = () => {
 
       <div className="row">
         <div className="col-7">
-          <TodoList todos={todos} />
+          <TodoList todos={todos} onDeleteTodo={handleRemoveTodo} />
         </div>
         <div className="col-5">
           <h4>Agregar TODO</h4>
