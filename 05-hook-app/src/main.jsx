@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { TodoApp } from "./08-useReducer/TodoApp";
+import { BrowserRouter } from "react-router-dom";
+import { MainApp } from "./09-useContext/MainApp";
+// import { TodoApp } from "./08-useReducer/TodoApp";
 // import { Padre } from "./07-tarea memo/Padre";
 // import { CallbackHook } from "./06-memos/CallbackHook";
 // import { MemoHook } from "./06-memos/MemoHook";
@@ -18,7 +20,11 @@ import { TodoApp } from "./08-useReducer/TodoApp";
 // import "./08-useReducer/intro-reducer";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
-  <TodoApp />
-  // </React.StrictMode>
+  /* Este HOC permite que todos sus hijos contenidos tengan acceso a cierta informacion que provee el padre */
+  /* Este componente es un higher order component o HOC */
+  <BrowserRouter>
+    {/* <React.StrictMode> */}
+    <MainApp />
+    {/* </React.StrictMode> */}
+  </BrowserRouter>
 );
