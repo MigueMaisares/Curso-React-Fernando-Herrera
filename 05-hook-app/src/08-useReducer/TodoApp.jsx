@@ -37,6 +37,14 @@ export const TodoApp = () => {
     });
   };
 
+  const handleToggleTodo = (id) => {
+    /* console.log(id); */
+    dispatch({
+      type: "[TODO] Toggle todo",
+      payload: id,
+    });
+  };
+
   return (
     <>
       <h1>
@@ -46,7 +54,12 @@ export const TodoApp = () => {
 
       <div className="row">
         <div className="col-7">
-          <TodoList todos={todos} onDeleteTodo={handleRemoveTodo} />
+          {/* nuestros componentes se encargan de emitir/disparar/devuelva el valor/evento que nostros esperamos */}
+          <TodoList
+            todos={todos}
+            onDeleteTodo={handleRemoveTodo}
+            onToggleTodo={handleToggleTodo}
+          />
         </div>
         <div className="col-5">
           <h4>Agregar TODO</h4>
