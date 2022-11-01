@@ -15,8 +15,7 @@ import { MainApp } from "./09-useContext/MainApp";
 // import { CounterApp } from "./01-useState/CounterApp";
 // import { CounterWithCustomHook } from "./01-useState/CounterWithCustomHook";
 // import { HookApp } from "./HookApp";
-// import "./index.css";
-
+import "./index.css";
 // import "./08-useReducer/intro-reducer";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -2,20 +2,41 @@ import { Link, NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded-3">
       <div className="container-fluid">
         <Link className="navbar-brand" href="/">
           useContext
         </Link>
 
         <div className="collapse navbar-collapse" id="navbarNav">
+          {/* El comp NavLink recibe la prop isActive y podemos usarla */}
           <ul className="navbar-nav">
-            <NavLink></NavLink>
-            <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" href="#">
-                Home
-              </Link>
-            </li>
+            <NavLink
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+              to="/"
+            >
+              Home
+            </NavLink>
+
+            <NavLink
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+              to="/about"
+            >
+              About
+            </NavLink>
+
+            <NavLink
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+              to="/Login"
+            >
+              Login
+            </NavLink>
           </ul>
         </div>
       </div>
